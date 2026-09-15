@@ -56,22 +56,17 @@ function Dashboard() {
         <h2 className="text-4xl sm:text-5xl font-bold leading-none tracking-tight max-w-[20ch] text-balance">
           Control room for the retail platform
         </h2>
-        <p className="mt-3 text-base text-inksoft max-w-[52ch] text-pretty">
-          Browse every module, manage records, and watch data flow from your PostgreSQL database
-          once the API is wired in.
-        </p>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {HIGHLIGHTS.map((m) => (
-          <Link key={m.to} to={m.to} className={`rounded-2xl p-5 flex flex-col gap-4 ${m.cls}`}>
-            <div>
-              <p className={`font-mono text-[11px] uppercase tracking-[0.15em] ${m.sub}`}>
-                Module {m.n}
-              </p>
-              <p className="text-2xl font-bold leading-none mt-1">{m.label}</p>
-            </div>
-            <p className={`text-sm text-pretty ${m.body}`}>{m.text}</p>
+          <Link
+            key={m.to}
+            to={m.to}
+            className={`rounded-2xl p-5 flex flex-col gap-3 text-ink ring-1 ${m.cls}`}
+          >
+            <p className="text-2xl font-bold leading-none">{m.label}</p>
+            <p className="text-sm text-inksoft text-pretty">{m.text}</p>
           </Link>
         ))}
       </div>
@@ -83,9 +78,6 @@ function Dashboard() {
             to={m.to}
             className="rounded-2xl bg-card p-5 flex flex-col gap-2 ring-1 ring-ink/5"
           >
-            <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-inksoft/70">
-              Module {m.n}
-            </p>
             <p className="text-xl font-bold leading-none">{m.label}</p>
             <p className="text-sm text-inksoft text-pretty">{m.text}</p>
           </Link>
