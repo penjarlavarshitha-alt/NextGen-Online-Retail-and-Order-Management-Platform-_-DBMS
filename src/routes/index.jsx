@@ -23,19 +23,19 @@ export const Route = createFileRoute("/")({
 });
 
 const HIGHLIGHTS = [
-  { to: "/customers", n: "01", label: "Customers", text: "Registration and contact records.", cls: "bg-primary text-primary-foreground", sub: "text-primary-foreground/70", body: "text-primary-foreground/80" },
-  { to: "/products", n: "02", label: "Products", text: "Catalog items and pricing.", cls: "bg-brand2 text-brand2-foreground", sub: "text-brand2-foreground/70", body: "text-brand2-foreground/80" },
-  { to: "/inventory", n: "03", label: "Inventory", text: "Stock levels and thresholds.", cls: "bg-accent text-accent-foreground", sub: "text-accent-foreground/60", body: "text-accent-foreground/70" },
-  { to: "/orders", n: "04", label: "Orders", text: "Placed orders and status.", cls: "bg-card text-ink", sub: "text-inksoft/70", body: "text-inksoft" },
+  { to: "/customers", label: "Customers", text: "Registration and contact records.", cls: "bg-primary/10 ring-primary/20" },
+  { to: "/products", label: "Products", text: "Catalog items and pricing.", cls: "bg-brand2/10 ring-brand2/20" },
+  { to: "/inventory", label: "Inventory", text: "Stock levels and thresholds.", cls: "bg-accent/15 ring-accent/30" },
+  { to: "/orders", label: "Orders", text: "Placed orders and status.", cls: "bg-pos/10 ring-pos/20" },
 ];
 
 const MORE = [
-  { to: "/categories", n: "05", label: "Categories", text: "Product classification tree." },
-  { to: "/cart", n: "06", label: "Cart", text: "Active cart items per customer." },
-  { to: "/payments", n: "07", label: "Payments", text: "Transactions and payment modes." },
-  { to: "/delivery", n: "08", label: "Delivery", text: "Shipment tracking and agents." },
-  { to: "/reviews", n: "09", label: "Reviews", text: "Ratings and customer feedback." },
-  { to: "/reports", n: "10", label: "Reports", text: "Aggregate queries and summaries." },
+  { to: "/categories", label: "Categories", text: "Product classification tree." },
+  { to: "/cart", label: "Cart", text: "Active cart items per customer." },
+  { to: "/payments", label: "Payments", text: "Transactions and payment modes." },
+  { to: "/delivery", label: "Delivery", text: "Shipment tracking and agents." },
+  { to: "/reviews", label: "Reviews", text: "Ratings and customer feedback." },
+  { to: "/reports", label: "Reports", text: "Aggregate queries and summaries." },
 ];
 
 function Dashboard() {
