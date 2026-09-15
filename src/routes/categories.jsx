@@ -20,11 +20,10 @@ function Categories() {
     <AppLayout breadcrumb="Home / Catalog" title="Categories">
       <DataTable
         title="Categories"
-        schema="category_id · name · parent_id · description"
+        schema="category_id · name · description"
         columns={[
           { key: "category_id", label: "ID" },
-          { key: "name", label: "Category" },
-          { key: "parent", label: "Parent" },
+          { key: "name", label: "Name" },
           { key: "description", label: "Description" },
         ]}
       />
@@ -33,8 +32,7 @@ function Categories() {
           title="Add Category"
           endpoint="POST /api/categories"
           fields={[
-            { name: "name", label: "Category Name", required: true, placeholder: "e.g. Electronics" },
-            { name: "parent_id", label: "Parent Category ID", placeholder: "leave blank for top level" },
+            { name: "name", label: "Name", required: true, placeholder: "e.g. Electronics" },
             { name: "description", label: "Description", wide: true, placeholder: "What belongs in this category" },
           ]}
         />
