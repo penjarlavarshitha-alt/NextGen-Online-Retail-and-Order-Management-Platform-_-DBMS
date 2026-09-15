@@ -32,8 +32,7 @@ function Categories() {
           title="Add Category"
           endpoint="POST /api/categories"
           fields={[
-            { name: "name", label: "Category Name", required: true, placeholder: "e.g. Electronics" },
-            { name: "parent_id", label: "Parent Category ID", placeholder: "leave blank for top level" },
+            { name: "name", label: "Name", required: true, placeholder: "e.g. Electronics" },
             { name: "description", label: "Description", wide: true, placeholder: "What belongs in this category" },
           ]}
         />
