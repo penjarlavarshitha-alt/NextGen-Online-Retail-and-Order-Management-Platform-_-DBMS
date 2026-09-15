@@ -20,11 +20,10 @@ function Categories() {
     <AppLayout breadcrumb="Home / Catalog" title="Categories">
       <DataTable
         title="Categories"
-        schema="category_id · name · parent_id · description"
+        schema="category_id · name · description"
         columns={[
           { key: "category_id", label: "ID" },
-          { key: "name", label: "Category" },
-          { key: "parent", label: "Parent" },
+          { key: "name", label: "Name" },
           { key: "description", label: "Description" },
         ]}
       />
