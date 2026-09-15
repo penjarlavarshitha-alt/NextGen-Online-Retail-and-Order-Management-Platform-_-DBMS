@@ -58,9 +58,9 @@
 
   --ink: oklch(0.27 0.055 268);
   --inksoft: oklch(0.47 0.045 271);
-  --canvas: oklch(0.96 0.008 267);
+  --canvas: oklch(0.955 0.002 260);
 
-  --background: oklch(0.96 0.008 267);
+  --background: oklch(0.955 0.002 260);
   --foreground: oklch(0.27 0.055 268);
   --card: oklch(1 0 0);
   --card-soft: oklch(0.965 0.022 271);
