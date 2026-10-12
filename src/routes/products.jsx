@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import AppLayout from "../components/AppLayout";
 import DataTable from "../components/DataTable";
 import RecordForm from "../components/RecordForm";
@@ -7,15 +8,47 @@ export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
       { title: "Products — NextGen Retail & Order Management" },
-      { name: "description", content: "Catalog items, pricing and product records." },
-      { property: "og:title", content: "Products — NextGen Retail & Order Management" },
-      { property: "og:description", content: "Add and browse product catalog records." },
+      {
+        name: "description",
+        content: "Catalog items, pricing and product records.",
+      },
+      {
+        property: "og:title",
+        content: "Products — NextGen Retail & Order Management",
+      },
+      {
+        property: "og:description",
+        content: "Add and browse product catalog records.",
+      },
     ],
   }),
   component: Products,
 });
 
 function Products() {
+  const [products, setProducts] = useState([]);
+
+  const loadProducts = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:4000/api/products"
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to load products");
+      }
+
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error loading products:", error);
+    }
+  };
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
+
   return (
     <AppLayout breadcrumb="Home / Catalog" title="Products">
       <DataTable
@@ -25,21 +58,52 @@ function Products() {
           { key: "product_id", label: "ID" },
           { key: "name", label: "Product" },
           { key: "sku", label: "SKU" },
-          { key: "category", label: "Category" },
+          { key: "category_id", label: "Category ID" },
           { key: "price", label: "Price" },
         ]}
+        rows={products}
       />
+
       <div className="mt-6">
         <RecordForm
           title="Add Product"
           endpoint="POST /api/products"
           fields={[
-            { name: "name", label: "Product Name", required: true, placeholder: "e.g. Desk Lamp" },
-            { name: "sku", label: "SKU / Code", required: true, placeholder: "e.g. PRD-0001" },
-            { name: "category_id", label: "Category ID", required: true, placeholder: "e.g. 3" },
-            { name: "price", label: "Price", type: "number", required: true, placeholder: "0.00" },
-            { name: "description", label: "Description", wide: true, placeholder: "Short product description" },
+            {
+              name: "name",
+              label: "Product Name",
+              required: true,
+              placeholder: "e.g. Desk Lamp",
+            },
+            {
+              name: "sku",
+              label: "SKU / Code",
+              required: true,
+              placeholder: "e.g. PRD-0001",
+            },
+            {
+              name: "category_id",
+              label: "Category ID",
+              required: true,
+              placeholder: "e.g. 3",
+            },
+            {
+              name: "price",
+              label: "Price",
+              type: "number",
+              required: true,
+              placeholder: "0.00",
+            },
+            {
+              name: "description",
+              label: "Description",
+              wide: true,
+              placeholder: "Short product description",
+            },
           ]}
+          onSubmit={() => {
+            loadProducts();
+          }}
         />
       </div>
     </AppLayout>
